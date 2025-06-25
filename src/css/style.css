@@ -1,0 +1,169 @@
+:root {
+    --primary-color: #ff85a2;  /* Нежно-розовый */
+    --secondary-color: #ff7096; /* Ярко-розовый */
+    --accent-color: #ffb3d1;   /* Светло-розовый */
+    --background-color: #fff0f5; /* Розово-бежевый */
+    --text-color: #5a3d4a;     /* Темно-бордовый */
+    --light-text: #a38f98;     /* Серо-розовый */
+    --error-color: #ff4757;    /* Ярко-красный */
+    --success-color: #7bed9f;  /* Мятный */
+    --border-radius: 12px;
+    --box-shadow: 0 8px 20px rgba(255, 131, 179, 0.1);
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: linear-gradient(135deg, #fff0f5 0%, #ffe6ee 100%);
+}
+
+/* Контейнеры форм */
+.form-container, .welcome-container {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 2.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    width: 100%;
+    max-width: 400px;
+    margin: 1rem;
+    transition: var(--transition);
+    border: 1px solid rgba(255, 182, 193, 0.3);
+    backdrop-filter: blur(5px);
+}
+
+.form-container:hover, .welcome-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(255, 131, 179, 0.15);
+}
+
+h1, h2 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-weight: 600;
+}
+
+/* Поля ввода */
+input[type="text"], 
+input[type="password"] {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 1.25rem;
+    border: 2px solid #ffd6e0;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    transition: var(--transition);
+    background-color: #fff9fb;
+}
+
+input[type="text"]:focus, 
+input[type="password"]:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    background-color: white;
+    box-shadow: 0 0 0 3px rgba(255, 179, 209, 0.3);
+}
+
+/* Кнопки */
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+    margin-top: 0.5rem;
+}
+
+button:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+/* Ссылки */
+a {
+    display: block;
+    text-align: center;
+    color: var(--accent-color);
+    text-decoration: none;
+    margin-top: 1.5rem;
+    transition: var(--transition);
+    font-weight: 500;
+}
+
+a:hover {
+    color: var(--secondary-color);
+    text-decoration: underline;
+}
+
+/* Сообщения об ошибках/успехе */
+.error, .success {
+    padding: 12px;
+    border-radius: var(--border-radius);
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-weight: 500;
+}
+
+.error {
+    background-color: #fff0f3;
+    color: var(--error-color);
+    border: 1px solid #ffccd5;
+}
+
+.success {
+    background-color: #f0fff4;
+    color: #2ecc71;
+    border: 1px solid #b7efc5;
+}
+
+/* Адаптивность */
+@media (max-width: 480px) {
+    .form-container, .welcome-container {
+        padding: 1.5rem;
+        margin: 1rem 0.5rem;
+    }
+}
+
+/* Анимации */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.form-container, .welcome-container {
+    animation: fadeIn 0.5s ease-out;
+}
+/* Фоновое изображение */
+body {
+    background-image: url('./images/cat.jpg'), 
+                     linear-gradient(135deg, #fff0f5 0%, #ffe6ee 100%);
+    background-blend-mode: overlay;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+/* Затемнение фона для лучшей читаемости */
+.form-container, .welcome-container {
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(8px);
+}
